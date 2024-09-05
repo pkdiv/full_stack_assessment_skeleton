@@ -127,9 +127,10 @@ docker-compose -f docker-compose.initial.yml up --build -d
   - so you must **NOT** use Entity first development, where you write your ORM entities and generate SQL migration scripts
   - instead you directly write SQL script, that makes all the changes you want to the DB
 
-### solution
+### Solution
 
-> explain briefly your solution for this problem here
+The table `user_home` is in 1NF as all values are atomic and (username, street_address) form a composite primary key.
+
 
 ## 2. React SPA
 
