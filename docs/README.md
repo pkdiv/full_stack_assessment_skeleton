@@ -129,7 +129,14 @@ docker-compose -f docker-compose.initial.yml up --build -d
 
 ### Solution
 
-The table `user_home` is in 1NF as all values are atomic and (username, street_address) form a composite primary key.
+The `user_home` table has data with many-to-many relation with repetative values. Hence the user data and home data is seperated into two table .
+
+So initially a `user` table is created with the columns *username* and *email*, and `home` table with the street address and the other columns. Since username and street are unique values. For future refereence an ID column with auto increment is added. 
+
+After the table creation, data is populated with unique values of username and street_address . 
+
+A third table `users_homes` is created to relate the user data with home data. This is done by performing JOIN on `user_home` and `user` on username and `user_home` and `home` on street_address. IDs user.id and home.id and is stored in the new table
+
 
 
 ## 2. React SPA
